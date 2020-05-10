@@ -51,3 +51,17 @@ This websites uses:
 - [Yarn](https://yarnpkg.com/) as package manager;
 - [GatsbyJS](https://github.com/gatsbyjs/gatsby) as website generator;
 - [gatsby-source-datocms](https://github.com/datocms/gatsby-source-datocms) to integrate the website with DatoCMS.
+
+
+
+# TODO
+- [ ] fix full page size and length, look to other code as source
+- [ ] fix scroll on portfolio
+- [ ] remove dummy data, input real data on portfolio
+- [ ] bring over spotify site
+
+## travel
+- [ ] set up models for travel blog
+- [ ] create page and template for it
+- [ ] bring over old blog posts from old blog
+- [ ] write about a couple awesome experiences (italy?)

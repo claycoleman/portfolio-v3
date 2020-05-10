@@ -1,0 +1,66 @@
+#bio-page
+  #left
+    flex: 1
+
+  #right
+    flex: 2
+
+#bio
+  line-height: 1.55em
+  letter-spacing: 0.04em
+
+  a
+    color: #fff
+    font-family: Ok
+    display: inline-block
+    position: relative
+    transition: all 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+    text-decoration: none
+    z-index: 20
+    padding: 0 2px
+
+    &:hover
+      color: #0d0d0d
+      -moz-transition: all 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95) 0.2s
+      -o-transition: all 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95) 0.2s
+      -webkit-transition-delay: 0.2s
+      transition: all 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95) 0.2s
+
+    &:before
+      top: 2px
+      left: -1.5%
+      height: calc(100% - 2px)
+      width: 103%
+      -moz-transform: scaleX(0)
+      -ms-transform: scaleX(0)
+      -webkit-transform: scaleX(0)
+      transform: scaleX(0)
+      transform-origin: left center
+      -moz-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1)
+      -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1)
+      -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1)
+      transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1)
+      z-index: -1
+      display: block
+      background-color: #fff
+      position: absolute
+      content: ''
+      cursor: pointer
+
+    &:hover:before
+      -moz-transform: scaleX(1)
+      -ms-transform: scaleX(1)
+      -webkit-transform: scaleX(1)
+      transform: scaleX(1)
+
+    &:after
+      bottom: 0px
+      left: 0
+      height: 2px
+      width: 100%
+      -webkit-transition: all 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+      transition: all 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+      display: block
+      background-color: #fff
+      position: absolute
+      content: ''

@@ -1,0 +1,363 @@
+::selection
+    background: #0d0d0d
+    color: #fff
+    text-shadow: none
+
+html, body, #root
+    width: 100%
+    height: 100%
+    overflow: hidden
+    font-family: OkLight
+
+body
+    margin: 0
+    padding: 0
+    font-family: OkLight
+
+.App
+    position: relative
+    display: flex
+    flex-flow: column
+
+#logo
+h1
+    color: #0d0d0d
+    font-family: OkLight
+    font-size: 42px
+    font-weight: 400
+
+    line-height: 1.2em
+    margin-bottom: 0
+    transform: translateY(10px) translateZ(0)
+
+h2
+    font-family: OkLight
+    font-size: 28px
+    font-weight: 400
+    margin: 0
+    color: #fff
+
+    transform: translateY(10px) translateZ(0)
+
+span
+    display: table
+    color: #0d0d0d
+    background-color: #3d3d3d
+    text-transform: uppercase
+    padding: 0 6px 1px
+    margin-top: 50px
+    margin-bottom: 10px
+    font-size: 12px
+    font-weight: 400
+
+#social a
+    color: rgba(239, 238, 237, 0.64)
+    font-family: OkLight
+    display: block
+    font-size: 13px
+    -moz-transition: all 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+    -o-transition: all 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+    -webkit-transition: all 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+    transition: all 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+    transition-property: color, font-weight
+    letter-spacing: 0.1em
+    -moz-transform: translateY(10px) translateZ(0)
+    -ms-transform: translateY(10px) translateZ(0)
+    -webkit-transform: translateY(10px) translateZ(0)
+    transform: translateY(10px) translateZ(0)
+    text-decoration: none
+    max-width: 200px
+    padding: 2px 0
+
+    &:hover
+        color: #fff
+        font-weight: bold
+
+.content, .fill
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    transition: background 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+    position: absolute
+
+.transitionBackground
+    height: 100%
+    background-image: -o-linear-gradient(transparent, rgba(0, 0, 0, 0.1))
+    background-image: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.1))
+    background-image: -moz-linear-gradient(transparent, rgba(0, 0, 0, 0.1))
+    background-image: -ms-linear-gradient(transparent, rgba(0, 0, 0, 0.1))
+    background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.1))
+    height: 100%
+    -o-transition: background-color 0.4s
+    -webkit-transition: background-color 0.4s
+    -moz-transition: background-color 0.4s
+    -ms-transition: background-color 0.4s
+    transition: background-color 0.4s
+
+@keyframes BackButtonIn
+    0%
+        opacity: 0
+        transform: translateX(-20px)
+
+    100%
+        opacity: 1
+        transform: translateX(0px)
+
+@keyframes SubpageTitleIn
+    0%
+        opacity: 0
+        transform: translateX(20px)
+
+    100%
+        opacity: 1
+        transform: translateX(0px)
+
+@keyframes spaceboots
+    0%
+        transform: translate(2px, 1px) rotate(0deg)
+
+    10%
+        transform: translate(-1px, -2px) rotate(-1deg)
+
+    20%
+        transform: translate(-3px, 0px) rotate(1deg)
+
+    30%
+        transform: translate(0px, 2px) rotate(0deg)
+
+    40%
+        transform: translate(1px, -1px) rotate(1deg)
+
+    50%
+        transform: translate(-1px, 2px) rotate(-1deg)
+
+    60%
+        transform: translate(-3px, 1px) rotate(0deg)
+
+    70%
+        transform: translate(2px, 1px) rotate(-1deg)
+
+    80%
+        transform: translate(-1px, -1px) rotate(1deg)
+
+    90%
+        transform: translate(2px, 2px) rotate(0deg)
+
+    100%
+        transform: translate(1px, -2px) rotate(-1deg)
+
+.shake
+    &:hover, &:focus
+        transform-origin: 50% 50%
+        animation: spaceboots 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+        animation-iteration-count: once
+
+.subpageTitle
+    opacity: 0
+    position: absolute
+    color: #fff
+    z-index: 5
+    right: 20px
+    font-family: OkLight
+    font-weight: lighter
+    font-size: 24px
+    top: 84px
+    animation: SubpageTitleIn 0.3s ease-in
+    animation-fill-mode: forwards
+    animation-delay: 0.4s
+
+.backButton
+    opacity: 0
+    position: absolute
+    color: #fff
+    border-radius: 50%
+    padding: 5px 4px 3px
+    transition: color 0.2s cubic-bezier(0.15, 0.9, 0.34, 0.95), background 0.2s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+    z-index: 5
+    left: 20px
+    font-size: 32px
+    line-height: 1em
+    top: 100px
+    cursor: pointer
+    width: 32px
+    height: 32px
+    animation: BackButtonIn 0.3s ease-in
+    animation-fill-mode: forwards
+    animation-delay: 0.4s
+    display: flex
+    justify-content: center
+    align-items: center
+
+    img
+        margin-top: -2px
+        filter: invert(100%)
+        -webkit-filter: invert(100%)
+
+    &:hover
+        color: rgba(255, 255, 255, 0.9)
+        background: rgba(255, 255, 255, 0.2)
+
+.page
+    width: 100%
+    max-width: 960px
+    height: 100%
+    padding: 0 24px
+    position: absolute
+    display: flex
+    justify-content: center
+    align-items: center
+    box-sizing: border-box
+
+#left
+    display: flex
+    flex: 2
+    justify-content: center
+    flex-direction: column
+
+#right
+    display: flex
+    flex: 1
+    flex-direction: column
+
+.App-box
+    cursor: pointer
+    position: relative
+    width: 100%
+    height: 80px
+    will-change: transform
+    display: flex
+    justify-content: center
+    align-items: center
+    max-width: 100%
+
+    a
+        display: inline-block
+        color: #0d0d0d
+        opacity: 1
+        visibility: visible
+        -moz-transform: translateY(0) translateZ(0)
+        -ms-transform: translateY(0) translateZ(0)
+        -webkit-transform: translateY(0) translateZ(0)
+        transform: translateY(0) translateZ(0)
+        font-family: OkLight
+        font-size: 24px
+        letter-spacing: 0.05em
+        text-decoration: none
+        text-transform: capitalize
+        position: relative
+
+        &:after
+            content: ''
+            position: absolute
+            bottom: -2px
+            right: 0
+            background: #0d0d0d
+            height: 1px
+            width: 100%
+            transform-origin: left center
+            -moz-transition: -moz-transform 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+            -o-transition: -o-transform 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+            -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+            transition: transform 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+
+        &:hover:after
+            transform: scaleX(0)
+            transform-origin: right center
+
+.App-header
+    background-color: #282c34
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    font-size: calc(10px + 2vmin)
+    color: #fff
+
+.App-link
+    color: #61dafb
+
+.home-col
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+.fade-enter
+    opacity: 0
+
+    &.fade-enter-active
+        opacity: 1
+        transition: opacity 0.2s cubic-bezier(0.15, 0.9, 0.34, 0.95), transform 0.2s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+
+.fade-exit
+    opacity: 1
+
+    &.fade-exit-active
+        opacity: 0
+        transition: opacity 0.2s cubic-bezier(0.15, 0.9, 0.34, 0.95), transform 0.2s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+
+@keyframes App-logo-spin
+    from
+        transform: rotate(0deg)
+
+    to
+        transform: rotate(360deg)
+
+@font-face
+    font-family: 'OkLight'
+    src: url("../assets/fonts/Okomito-Light.woff") format("woff")
+
+@font-face
+    font-family: 'Ok'
+    src: url("../assets/fonts/Okomito-Regular.woff") format("woff")
+
+.grid-col
+    display: flex
+    justify-content: center
+    align-items: center
+    min-height: 80px
+    font-size: 24px
+    font-family: Ok
+
+.mobileOnly
+    text-align: center
+    width: 100%
+
+.container, .row
+    max-width: 100%
+
+@media (min-width: 576px)
+    .mobileOnly
+        display: none
+
+@media (max-width: 576px)
+    #logo
+        text-align: center
+
+    #social a
+        margin: 16px auto
+
+    .row
+        margin: 0
+
+    .desktopOnly
+        display: none
+
+    .subpageTitle
+        top: 16px
+
+    .backButton
+        top: 30px
+        padding: 2px 4px 6px
+        display: flex
+        justify-content: center
+        align-items: center
+
+    .subpage
+        display: block
+        overflow-y: scroll
+        padding-top: 80px !important
+        padding-bottom: 40px
+        -webkit-overflow-scrolling: touch
