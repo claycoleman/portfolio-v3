@@ -13,23 +13,4 @@ export const getPageBackground = (pageRoute) => {
   return PAGE_BACKGROUNDS[pageRoute] || "rgb(32, 118, 124)";
 };
 
-export const SOCIAL_LINKS = [
-  {
-    href: "mailto:jclaytoncoleman@gmail.com",
-    title: "email",
-  },
-  {
-    href: "https://www.linkedin.com/in/jclaytoncoleman/",
-    title: "linkedin",
-  },
-  {
-    href: "https://twitter.com/_claycoleman",
-    title: "twitter",
-  },
-  {
-    href: "https://instagram.com/_claycoleman",
-    title: "instagram",
-  },
-];
-
 export const MAIN_MENU_LINKS = ["about", "projects", "spotify"]; // add travel back in later

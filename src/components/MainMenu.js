@@ -7,7 +7,7 @@ export default function MainMenu({ items }) {
   const [redirect, setRedirect] = useState(null);
 
   const trail = useTrail(items.length, {
-    config: config.wobbly,
+    config: { mass: 1, tension: 200, friction: 17 },
     from: { opacity: 0, y: 75 },
     to: { opacity: 1, y: 0 },
     opacity: 1,

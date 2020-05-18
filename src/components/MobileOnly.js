@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-export default props => {
+export default (props) => {
   return (
-    <div className="mobileOnly">
+    <div className={`mobileOnly ${props.className || ""}`}>
       {props.children}
     </div>
   );

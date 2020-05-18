@@ -3,33 +3,35 @@ import { Link, graphql } from "gatsby";
 import Masonry from "react-masonry-component";
 import Img from "gatsby-image";
 import BackButton from "../components/BackButton";
+import Page from "../components/Page";
+import { Grid } from "react-flexbox-grid";
 
 const ProjectsPage = ({ data }) => {
-  console.log("at index");
+  console.log("at projcts");
   return (
-    <>
-      <h2 className="subpageTitle">Projects</h2>
-      <BackButton />
-      <Masonry className="showcase">
-        {data.allDatoCmsWork.edges.map(({ node: work }) => (
-          <div key={work.id} className="showcase__item">
-            <figure className="card">
-              <Link to={`/works/${work.slug}`} className="card__image">
-                <Img fluid={work.coverImage.fluid} />
-              </Link>
-              <figcaption className="card__caption">
-                <h6 className="card__title">
-                  <Link to={`/works/${work.slug}`}>{work.title}</Link>
-                </h6>
-                <div className="card__description">
-                  <p>{work.excerpt}</p>
+    <div className="sheet">
+      <Page id="projects-page" subpageTitle="Projects">
+        <div className="scroller">
+          <Grid>
+            <Masonry className="showcase">
+              {data.allDatoCmsWork.edges.map(({ node: project }) => (
+                <div key={project.id} className="showcase__item">
+                  <Link
+                    to={"/projects/" + project.slug}
+                    style={{ width: "100%" }}
+                  >
+                    <div className="project-item">
+                      <h3>{project.title}</h3>
+                      <p>{project.subtitle}</p>
+                    </div>
+                  </Link>
                 </div>
-              </figcaption>
-            </figure>
-          </div>
-        ))}
-      </Masonry>
-    </>
+              ))}
+            </Masonry>
+          </Grid>
+        </div>
+      </Page>
+    </div>
   );
 };
 
@@ -42,6 +44,7 @@ export const query = graphql`
         node {
           id
           title
+          subtitle
           slug
           excerpt
           coverImage {

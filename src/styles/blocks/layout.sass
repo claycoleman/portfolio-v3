@@ -68,6 +68,7 @@ span
     text-decoration: none
     max-width: 200px
     padding: 2px 0
+    text-transform: lowercase
 
     &:hover
         color: #fff
@@ -153,16 +154,20 @@ span
         animation: spaceboots 0.8s cubic-bezier(0.15, 0.9, 0.34, 0.95)
         animation-iteration-count: once
 
+.subpageTitleBar
+    position: absolute
+    width: 100%
+    top: 100px
+
 .subpageTitle
     opacity: 0
     position: absolute
     color: #fff
     z-index: 5
-    right: 20px
+    right: 8px
     font-family: OkLight
     font-weight: lighter
     font-size: 24px
-    top: 84px
     animation: SubpageTitleIn 0.3s ease-in
     animation-fill-mode: forwards
     animation-delay: 0.4s
@@ -175,10 +180,9 @@ span
     padding: 5px 4px 3px
     transition: color 0.2s cubic-bezier(0.15, 0.9, 0.34, 0.95), background 0.2s cubic-bezier(0.15, 0.9, 0.34, 0.95)
     z-index: 5
-    left: 20px
+    left: 8px
     font-size: 32px
     line-height: 1em
-    top: 100px
     cursor: pointer
     width: 32px
     height: 32px
@@ -199,15 +203,11 @@ span
         background: rgba(255, 255, 255, 0.2)
 
 .page
-    width: 100%
-    max-width: 960px
-    height: 100%
-    padding: 0 24px
-    position: absolute
-    display: flex
-    justify-content: center
-    align-items: center
-    box-sizing: border-box
+    position: relative
+    max-width: 100vw
+
+.page.mini
+    max-height: 100vh
 
 #left
     display: flex
@@ -250,7 +250,7 @@ span
         &:after
             content: ''
             position: absolute
-            bottom: -2px
+            bottom: 1px
             right: 0
             background: #0d0d0d
             height: 1px
@@ -313,13 +313,6 @@ span
     font-family: 'Ok'
     src: url("../assets/fonts/Okomito-Regular.woff") format("woff")
 
-.grid-col
-    display: flex
-    justify-content: center
-    align-items: center
-    min-height: 80px
-    font-size: 24px
-    font-family: Ok
 
 .mobileOnly
     text-align: center
@@ -328,11 +321,19 @@ span
 .container, .row
     max-width: 100%
 
-@media (min-width: 576px)
+.page:not(.mini)
     .mobileOnly
         display: none
 
-@media (max-width: 576px)
+.scroller
+    max-height: calc(100vh - 68px)
+    overflow-y: auto
+    -webkit-overflow-scrolling: touch
+    margin-top: 68px !important
+    padding-bottom: 68px
+
+.page.mini
+
     #logo
         text-align: center
 
@@ -345,19 +346,18 @@ span
     .desktopOnly
         display: none
 
-    .subpageTitle
-        top: 16px
+    .subpageTitleBar
+        top: 15px
 
     .backButton
-        top: 30px
-        padding: 2px 4px 6px
         display: flex
         justify-content: center
         align-items: center
+        left: 10px
 
     .subpage
         display: block
-        overflow-y: scroll
+        overflow-y: auto
         padding-top: 80px !important
         padding-bottom: 40px
         -webkit-overflow-scrolling: touch

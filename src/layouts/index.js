@@ -12,6 +12,7 @@ import { useLocation } from "@reach/router";
 import "../styles/index.sass";
 import { getPageBackground } from "../utils/pages";
 import { useTimeout } from "../utils/hooks";
+import { Grid, Row } from "react-flexbox-grid";
 
 function TransitionContainer({ currBackground, children, loading }) {
   const location = useLocation();
@@ -75,8 +76,7 @@ function TransitionContainer({ currBackground, children, loading }) {
               favicon={data.datoCmsSite.faviconMetaTags}
               seo={data.datoCmsHome.seoMetaTags}
             />
-            <TransitionGroup
-            >
+            <TransitionGroup>
               <CSSTransition
                 key={location.key}
                 timeout={{ enter: 300, exit: 300 }}

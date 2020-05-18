@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
-export default props => {
+export default (props) => {
   return (
-    <div style={props.style} className="desktopOnly">
+    <div style={props.style} className={`desktopOnly ${props.className || ""}`}>
       {props.children}
     </div>
   );

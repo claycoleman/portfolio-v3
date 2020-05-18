@@ -1,4 +1,8 @@
 @media screen and (max-width: 899px)
+  .container
+    height: 100%
+    width: 100%
+
   .container__sidebar
     box-sizing: border-box
     width: 200px
@@ -15,7 +19,7 @@
     background-color: $light-bg-color
 
     .container.is-open &
-      transform: translate3d(0px, 0, 0);
+      transform: translate3d(0px, 0, 0)
 
   .container__body
     transform: translate3d(0px, 0, 0)
@@ -27,7 +31,9 @@
 @media screen and (min-width: 900px)
   .container
     display: flex
+    justify-content: center
     padding: 0
+    height: 100%
 
   .container__mobile-header
     display: none
