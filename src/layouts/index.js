@@ -96,8 +96,6 @@ const TemplateWrapper = ({ children }) => {
   const location = useLocation();
   const backgroundForRoute = getPageBackground(location.pathname);
   const [loading, setLoading] = useState(true);
-  console.log(backgroundForRoute);
-  console.log(location.pathname);
 
   useTimeout(() => {
     if (loading) {

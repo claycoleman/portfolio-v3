@@ -7,7 +7,6 @@ import Page from "../components/Page";
 import { Grid } from "react-flexbox-grid";
 
 const ProjectsPage = ({ data }) => {
-  console.log("at projcts");
   return (
     <div className="sheet">
       <Page id="projects-page" subpageTitle="Projects" moreRoom>
