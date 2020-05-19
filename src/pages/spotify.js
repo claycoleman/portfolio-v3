@@ -1,7 +1,5 @@
 import React, { useRef, useState, useMemo, useCallback } from "react";
 import { Link, graphql } from "gatsby";
-import Masonry from "react-masonry-component";
-import Img from "gatsby-image";
 import BackButton from "../components/BackButton";
 import Page from "../components/Page";
 import MobileOnly from "../components/MobileOnly";
@@ -12,7 +10,6 @@ import {
   SPOTIFY_AUTH_TOKEN_LOCAL_STORAGE_KEY,
   SPOTIFY_API_PLAYLIST_URL,
   SERVER_ACCESS_TOKEN_URL,
-  PLAYLIST_IDS,
 } from "../utils/constants";
 import { useEffectOnce } from "../utils/hooks";
 import { MobileOnlyView } from "react-device-detect";
@@ -30,6 +27,9 @@ function getLoadedPlaylistsCount(playlists) {
 }
 
 const SpotifyPage = ({ data }) => {
+  const playlistIDs = (data.allDatoCmsSpotifyPlaylist.edges ?? []).map(
+    (edge) => edge.node.playlistId,
+  );
   const [playlists, setPlaylists] = useState({});
   const loadedPlaylistsCount = useMemo(
     () => getLoadedPlaylistsCount(playlists),
@@ -50,8 +50,8 @@ const SpotifyPage = ({ data }) => {
   };
 
   const getRemainingPlaylists = () => {
-    for (let index = 1; index < PLAYLIST_IDS.length; index++) {
-      getPlaylist(PLAYLIST_IDS[index]);
+    for (let index = 1; index < playlistIDs.length; index++) {
+      getPlaylist(playlistIDs[index]);
     }
   };
 
@@ -79,7 +79,7 @@ const SpotifyPage = ({ data }) => {
             ...previousPlaylists,
             [response.data.id]: response.data,
           };
-          if (getLoadedPlaylistsCount(newPlaylists) == PLAYLIST_IDS.length) {
+          if (getLoadedPlaylistsCount(newPlaylists) == playlistIDs.length) {
             sessionStorage.setItem(
               SPOTIFY_DATA_SESSION_STORAGE_KEY,
               JSON.stringify({
@@ -98,7 +98,7 @@ const SpotifyPage = ({ data }) => {
   };
 
   const getInitialPlaylist = () => {
-    getPlaylist(PLAYLIST_IDS[0], true);
+    getPlaylist(playlistIDs[0], true);
   };
 
   const playFirstPreview = useCallback(
@@ -144,7 +144,7 @@ const SpotifyPage = ({ data }) => {
   useEffectOnce(() => {
     // to preserve order
     let playlists = {};
-    PLAYLIST_IDS.forEach((playlistID) => {
+    playlistIDs.forEach((playlistID) => {
       playlists[playlistID] = null;
     });
     let cachedQueryResults = sessionStorage.getItem(
@@ -173,7 +173,7 @@ const SpotifyPage = ({ data }) => {
   });
 
   let content;
-  if (loadedPlaylistsCount < PLAYLIST_IDS.length) {
+  if (loadedPlaylistsCount < playlistIDs.length) {
     content = (
       <div
         style={{
@@ -279,13 +279,12 @@ export default SpotifyPage;
 
 export const query = graphql`
   query SpotifyQuery {
-    allDatoCmsWork(sort: { fields: [position], order: ASC }) {
+    allDatoCmsSpotifyPlaylist(sort: { fields: [position], order: ASC }) {
       edges {
         node {
           id
-          title
-          subtitle
-          slug
+          name
+          playlistId
         }
       }
     }
