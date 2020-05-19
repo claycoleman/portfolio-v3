@@ -7,7 +7,7 @@ export default function MainMenu({ items }) {
   const [redirect, setRedirect] = useState(null);
 
   const trail = useTrail(items.length, {
-    config: { mass: 1, tension: 200, friction: 17 },
+    config: { mass: 0.75, tension: 500, friction: 28, },
     from: { opacity: 0, y: 75 },
     to: { opacity: 1, y: 0 },
     opacity: 1,

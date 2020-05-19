@@ -13,7 +13,7 @@ import Page from "../components/Page";
 const IndexPage = ({ data }) => {
   return (
     <div className="sheet">
-      <Page id="home-page">
+      <Page id="home-page" isSubpage={false}>
         <Grid>
           <Row style={{ width: "100%", height: "100%" }}>
             <Col className="home-col" sm={6}>

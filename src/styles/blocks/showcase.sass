@@ -2,8 +2,6 @@
   visibility: hidden
 
 .showcase__item
-  margin-bottom: 15px
-  padding: 16px
   box-sizing: border-box
 
 .showcase
@@ -27,10 +25,11 @@
   &.page:not(.mini)
     .scroller
       margin-top: 150px !important
+      max-height: calc(100vh - 182px)
 
   &.page.mini
     .scroller
-      margin-top: 68px !important
+      max-height: calc(100vh - 100px)
 
 .page.mini
   .showcase

@@ -9,7 +9,12 @@ export default (props) => {
       : { query: "(max-width: 576px)" },
   );
   return (
-    <div id={props.id} className={`page ${isMini ? "mini" : ""}`}>
+    <div
+      id={props.id}
+      className={`page scroller ${isMini ? "mini" : ""} ${
+        Boolean(props.moreRoom) ? "moreRoom" : ""
+      } ${props.isSubpage != null ? props.isSubpage : true ? "subpage" : ""}`}
+    >
       {props.subpageTitle && (
         <SubpageTitleBar title={props.subpageTitle} url={props.parent} />
       )}

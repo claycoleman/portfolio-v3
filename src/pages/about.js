@@ -11,20 +11,33 @@ import MobileOnly from "../components/MobileOnly";
 import BackButton from "../components/BackButton";
 import SubpageTitleBar from "../components/SubpageTitleBar";
 import Page from "../components/Page";
+import { useTimeout } from "../utils/hooks";
 
 const About = ({ data }) => {
   const about = data.about;
   const numSocialLinks = getNumberOfSocialLinksFromData(data);
+  useTimeout(() => {
+    const links = document.querySelectorAll("#bio a");
+    links.forEach((link) => {
+      if (link.hostname != window.location.hostname) {
+        link.target = "_blank";
+      }
+    });
+  }, 250);
   return (
     <div className="sheet">
       <HelmetDatoCms seo={about.seoMetaTags} />
-      <Page id="bio-page" md subpageTitle="About">
+      <Page id="about-page" md subpageTitle="About">
         <Grid id="about-grid">
           <Row
-            className="scroller"
-            style={{ height: "100%", width: "100%", margin: 0 }}
+            style={{
+              height: "100%",
+              width: "100%",
+              margin: 0,
+              alignContent: "flex-start",
+            }}
           >
-            <Col className="home-col" md={6} lg={4}>
+            <Col className="about-col" md={6} lg={4}>
               <div id="about-logo">
                 <DesktopOnly>
                   <div
@@ -59,7 +72,7 @@ const About = ({ data }) => {
                 </DesktopOnly>
               </div>
             </Col>
-            <Col className="home-col" md={6} lg={8}>
+            <Col className="about-col" md={6} lg={8}>
               <div
                 id="bio"
                 className="sheet__body"

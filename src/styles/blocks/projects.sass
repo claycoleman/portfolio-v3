@@ -12,6 +12,8 @@
   min-height: 120px
   cursor: pointer
   transition: background 0.3s ease-out
+  padding: 16px
+  box-sizing: border-box
   width: 100%
 
   &:hover
@@ -24,3 +26,53 @@
   p
     font-size: 16px
     font-family: OkLight
+
+#single-project-page
+  font-family: OkLight
+  font-weight: 100
+  letter-spacing: 0.04em
+
+  a
+    text-decoration: none
+    position: relative
+    color: #fff
+
+    h2
+      position: relative
+      display: inline
+      letter-spacing: 0.04em
+      color: #fff
+
+    h2:after
+      content: ''
+      position: absolute
+      bottom: 0
+      right: 0
+      background: #fff
+      height: 2px
+      width: 100%
+      transform-origin: left center
+      -moz-transition: -moz-transform 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+      -o-transition: -o-transform 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+      -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+      transition: transform 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+
+    h2:hover:after
+      transform: scaleX(0)
+      transform-origin: right center
+
+#single-project-page
+  #project-details
+    padding: 0 8px
+
+  &.page:not(.mini)
+    .scroller
+      margin-top: 140px !important
+
+    #project-details
+      margin: 0px 8px 0
+
+  &.page.mini
+    #project-details
+      margin: 0
+      margin-top: 30px
