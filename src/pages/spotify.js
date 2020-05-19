@@ -267,6 +267,7 @@ const SpotifyPage = ({ data }) => {
     <div className="sheet">
       <Helmet>
         <title>Spotify - Clay Coleman</title>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
       </Helmet>
       <Page id="spotify-page" subpageTitle="Spotify">
         <Grid>{content}</Grid>
