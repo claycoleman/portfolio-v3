@@ -69,7 +69,7 @@ function TransitionContainer({ currBackground, children, loading }) {
           <div
             style={{
               height: "100%",
-              transition: "background  8s cubic-bezier(0.15, 0.9, 0.34, 0.95)",
+              transition: "background 300ms cubic-bezier(0.15, 0.9, 0.34, 0.95)",
             }}
           >
             <HelmetDatoCms
