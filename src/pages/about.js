@@ -24,6 +24,11 @@ const About = ({ data }) => {
       }
     });
   }, 250);
+  const today = new Date();
+  const msSinceMyBirthday = today - new Date("June 9, 1995");
+  const yearsOld = Math.floor(
+    parseFloat(msSinceMyBirthday / 1000 / 60 / 60 / 24 / 365.25),
+  ).toFixed(0);
   return (
     <div className="sheet">
       <HelmetDatoCms seo={about.seoMetaTags} />
@@ -49,7 +54,7 @@ const About = ({ data }) => {
                 </DesktopOnly>
                 <h1
                   style={{
-                    color: "rgba(255,255,255,0.7)",
+                    color: "rgba(255,255,255,1.0)",
                     fontFamily: "OkLight",
                     fontSize: "42px",
                     fontWeight: "400",
@@ -58,7 +63,7 @@ const About = ({ data }) => {
                     transform: "translateY(10px) translateZ(0)",
                   }}
                 >
-                  Clay
+                  Me
                 </h1>
                 <Img
                   fluid={about.photo.fluid}
@@ -77,7 +82,10 @@ const About = ({ data }) => {
                 id="bio"
                 className="sheet__body"
                 dangerouslySetInnerHTML={{
-                  __html: about.bioNode.childMarkdownRemark.html,
+                  __html: about.bioNode.childMarkdownRemark.html.replace(
+                    "{{age}}",
+                    yearsOld,
+                  ),
                 }}
               />
             </Col>

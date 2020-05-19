@@ -1,5 +1,4 @@
 import React from 'react';
-import './MusicBars.css';
 
 export default props => {
   const className = props.animated ? 'animated' : '';

@@ -219,8 +219,8 @@ span
     flex-direction: column
 
 .App-box
-    cursor: pointer
     position: relative
+    cursor: pointer
     width: 100%
     height: 80px
     will-change: transform
@@ -228,6 +228,7 @@ span
     justify-content: center
     align-items: center
     max-width: 100%
+    background: transparent
 
     a
         display: inline-block
@@ -262,6 +263,10 @@ span
         &:hover:after
             transform: scaleX(0)
             transform-origin: right center
+
+    &:hover a:after
+        transform: scaleX(0)
+        transform-origin: right center
 
 .App-header
     background-color: #282c34
@@ -338,9 +343,10 @@ body .scroller::-webkit-scrollbar-thumb
     padding-top: 50px
 
 .page.mini
+    width: 100%
 
     &.scroller
-        padding-top: 40px
+        padding-top: 60px
 
         &.moreRoom
             padding-top: 80px

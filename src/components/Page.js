@@ -18,7 +18,9 @@ export default (props) => {
       {props.subpageTitle && (
         <SubpageTitleBar title={props.subpageTitle} url={props.parent} />
       )}
-      {props.children}
+      {props.children instanceof Function
+        ? props.children(isMini)
+        : props.children}
     </div>
   );
 };

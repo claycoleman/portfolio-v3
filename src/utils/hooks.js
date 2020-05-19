@@ -24,3 +24,7 @@ export const useTimeout = (
 
   return cancel;
 };
+
+export const useEffectOnce = (func) => {
+  useEffect(func, []);
+};

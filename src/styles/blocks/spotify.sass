@@ -1,0 +1,310 @@
+$margin-from-my-playlists: 32px
+
+@keyframes endSound
+    to
+        opacity: 0.35
+        height: 3px
+
+@keyframes sound
+    0%
+        height: 3px
+
+    100%
+        height: 28px
+        align-items: unset
+
+#spotify-page
+    &:not(.mini)
+        height: 100vh
+
+    #bars
+        height: 30px
+        width: 40px
+        position: absolute
+        margin-top: $margin-from-my-playlists + 3
+
+        .bar
+            animation: endSound 0.8s ease-out
+            animation-fill-mode: forwards
+            background: rgba(255, 255, 255, 0.3)
+            bottom: 1px
+            height: 14px
+            position: absolute
+            width: 3px
+            transition: height 0.4s cubic-bezier(0.15, 0.9, 0.34, 0.95)
+
+        &.animated
+            .bar
+                animation: sound 0ms -800ms linear infinite alternate
+                animation-fill-mode: both
+                opacity: 1
+                background: rgba(255, 255, 255, 0.6)
+
+    .bar:nth-child(1)
+        left: 1px
+        animation-duration: 474ms !important
+        animation-delay: -0ms !important
+
+    .bar:nth-child(2)
+        left: 5px
+        animation-duration: 433ms !important
+        animation-delay: -200ms !important
+
+    .bar:nth-child(3)
+        left: 9px
+        animation-duration: 407ms !important
+        animation-delay: -150ms !important
+
+    .bar:nth-child(4)
+        left: 13px
+        animation-duration: 458ms !important
+        animation-delay: -50ms !important
+
+    .bar:nth-child(5)
+        left: 17px
+        animation-duration: 400ms !important
+        animation-delay: -230ms !important
+
+    .bar:nth-child(6)
+        left: 21px
+        animation-duration: 427ms !important
+        animation-delay: -90ms !important
+
+    .bar:nth-child(7)
+        left: 25px
+        animation-duration: 441ms !important
+        animation-delay: -210ms !important
+
+    .bar:nth-child(8)
+        left: 29px
+        animation-duration: 419ms !important
+        animation-delay: -100ms !important
+
+    .bar:nth-child(9)
+        left: 33px
+        animation-duration: 487ms !important
+        animation-delay: -12ms !important
+
+    .bar:nth-child(10)
+        left: 37px
+        animation-duration: 442ms !important
+        animation-delay: -300ms !important
+
+    .list
+        margin-left: 50%
+        position: relative
+        display: block
+        z-index: 1
+        box-sizing: border-box
+        margin-bottom: 20vh
+
+        &:before
+            content: 'My Playlists'
+            color: #fff
+            font-family: OkLight
+            font-size: 42px
+            font-weight: 400
+            line-height: 1.2em
+            transform: translateY(10px) translateZ(0)
+            position: fixed
+            top: 20vh
+            margin-top: 0
+            margin-left: -24rem
+            z-index: 5
+
+    .mobile-title
+        margin-bottom: 12px
+
+        h1
+            color: #fff
+            font-family: OkLight
+            font-size: 42px
+            font-weight: 400
+            line-height: 1.2em
+            transform: translateY(10px) translateZ(0)
+            display: flex
+            justify-content: center
+            align-items: center
+
+        h3
+            color: rgba(255, 255, 255, 0.5)
+            font-family: OkLight
+            font-size: 18px
+            font-weight: 400
+            line-height: 1.2em
+            justify-content: center
+            transform: translateY(10px) translateZ(0)
+
+    .inner-list
+        width: 100%
+        height: 100%
+        padding-right: 20px
+        overflow-y: auto
+        overflow-x: hidden
+        box-sizing: border-box
+        z-index: 1
+
+    .inner-list::-webkit-scrollbar
+        width: 0.3em !important
+        background-color: transparent !important
+
+    .inner-list::-webkit-scrollbar-thumb
+        background-color: rgba(0,0,0,0.3) !important
+        border-radius: 8px
+        padding-top: 50px
+
+    .playlist
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        pointer-events: initial
+        min-height: 80px
+        color: #fff
+        text-align: center
+        min-height: 120px
+        cursor: pointer
+        transition: background 0.3s ease-out
+        padding: 16px
+        margin: 0 8px
+        box-sizing: border-box
+        position: relative
+        z-index: 1
+
+        &:hover
+            background: rgba(255, 255, 255, 0.3)
+
+        a
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            height: 100%
+            pointer-events: initial
+
+        .title
+            display: flex
+            font-size: 32px
+            margin: 0
+            color: rgba(255, 255, 255, 1)
+            z-index: 1
+            line-height: 1
+
+        .tracks
+            display: flex
+            font-size: 20px
+            margin: 0
+            color: rgba(255, 255, 255, 0.5)
+            z-index: 1
+
+    .top-list
+        max-height: 100%
+        overflow: hidden
+        width: 100%
+
+    .bars-wrapper
+        position: fixed
+        margin-top: 54px
+        margin-left: -24rem
+        z-index: 1
+        width: 300px
+        height: 100px
+
+    .bars-inner
+        position: relative
+
+    .bars-details
+        position: absolute
+        top: $margin-from-my-playlists
+        left: 55px
+        width: 80%
+
+        h3
+            font-size: 18px
+            margin: 0
+            color: #fff
+            font-weight: lighter
+            line-height: 1.2
+
+        h4
+            font-size: 12px
+            margin: 0
+            color: rgba(255, 255, 255, 0.5)
+            line-height: 1
+
+        img
+            position: absolute
+            display: block
+            top: 50px
+            left: -55px
+            width: calc(100% + 54px)
+            z-index: -20
+
+            -webkit-filter: brightness(30%)
+            -moz-filter: brightness(30%)
+            filter: url(#brightness)
+            filter: brightness(30%)
+
+    //  /* .bars-details img {
+    //  position: fixed;
+    //  left: 60px;
+    //  top: 27%;
+    //  left: 58vw;
+
+    //  width: 500px;
+    //  height: 500px;
+    //  z-index: -20;
+
+    //  -webkit-filter: brightness(50%);
+    //  -moz-filter: brightness(50%);
+    //  filter: url(#brightness); 
+    //  filter: brightness(35%);
+
+    //  display: block;
+    //  -moz-transform: rotateX(20deg) rotateY(-20deg) rotateZ(10deg) translateZ(0);
+    //  -ms-transform: rotateX(20deg) rotateY(-20deg) rotateZ(10deg) translateZ(0);
+    //  -webkit-transform: rotateX(20deg) rotateY(-20deg) rotateZ(10deg) translateZ(0);
+    //  transform: rotateX(20deg) rotateY(-20deg) rotateZ(10deg) translateZ(0);
+    //  } */
+
+    @media (max-width: 856px)
+        .list:before,
+        .bars-wrapper
+            margin-left: -20rem
+
+            &
+                width: 220px
+
+    @media (max-width: 686px)
+        .list:before,
+        .bars-wrapper
+            margin-left: -16rem
+
+    &.mini
+        .list
+            margin: 0
+            top: 0px
+
+        .top-list
+            overflow: visible
+            margin-top: 0
+
+        .inner-list
+            overflow: visible
+            margin-top: 0
+
+        .bars-details
+            display: none
+
+        .playlist
+            opacity: 1
+            display: flex
+            flex-direction: column
+            justify-content: center
+            text-align: center
+
+            .title
+                width: 100%
+
+            .tracks
+                width: 100%

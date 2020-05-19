@@ -9,10 +9,14 @@ import DesktopOnly from "../components/DesktopOnly";
 import MainMenu from "../components/MainMenu";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import Page from "../components/Page";
+import { Helmet } from "react-helmet";
 
 const IndexPage = ({ data }) => {
   return (
     <div className="sheet">
+      <Helmet>
+        <title>Clay Coleman - Software Engineer</title>
+      </Helmet>
       <Page id="home-page" isSubpage={false}>
         <Grid>
           <Row style={{ width: "100%", height: "100%" }}>
