@@ -23,8 +23,8 @@ const IndexPage = ({ data }) => {
             <Col className="home-col" sm={6}>
               <div id="logo">
                 <div style={{ paddingTop: 24, minHeight: 0 }} />
-                <h1>Clay Coleman</h1>
-                <h2>Software Engineer</h2>
+                <h1>{data.datoCmsHome.topName}</h1>
+                <h2>{data.datoCmsHome.subtitle}</h2>
 
                 <DesktopOnly style={{ paddingTop: 24 }}>
                   <SocialLinks />
@@ -51,21 +51,6 @@ export const query = graphql`
     datoCmsHome {
       topName
       subtitle
-    }
-    allDatoCmsWork(sort: { fields: [position], order: ASC }) {
-      edges {
-        node {
-          id
-          title
-          slug
-          excerpt
-          coverImage {
-            fluid(maxWidth: 450, imgixParams: { fm: "jpg", auto: "compress" }) {
-              ...GatsbyDatoCmsSizes
-            }
-          }
-        }
-      }
     }
   }
 `;

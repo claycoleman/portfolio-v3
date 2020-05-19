@@ -31,14 +31,6 @@ function TransitionContainer({ currBackground, children, loading }) {
               ...GatsbyDatoCmsSeoMetaTags
             }
           }
-          allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
-            edges {
-              node {
-                profileType
-                url
-              }
-            }
-          }
         }
       `}
       render={(data) => {
