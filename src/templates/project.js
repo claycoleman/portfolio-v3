@@ -17,7 +17,11 @@ export default ({ data }) => (
       <Grid>
         <HelmetDatoCms seo={data.datoCmsWork.seoMetaTags} />
         <div id="project-details">
-          <a href={data.datoCmsWork.externalUrl} target="_blank">
+          <a
+            href={data.datoCmsWork.externalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <h2 className="sheet__title">{data.datoCmsWork.title}</h2>
           </a>
           <p className="sheet__lead">{data.datoCmsWork.excerpt}</p>

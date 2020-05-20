@@ -1,7 +1,7 @@
 // SPOTIFY
 export const SPOTIFY_API_PLAYLIST_URL = "https://api.spotify.com/v1/playlists/";
 export const SERVER_ACCESS_TOKEN_URL =
-  "http://old.claycoleman.us/spotify_access_token/";
+  "https://old.claycoleman.us/spotify_access_token/";
 export const SPOTIFY_AUTHORIZATION_BASIC =
   "YTRhODM3NzNiNDRmNGVkZjgxOThhZjM2OGZkYzc4MTA6NGJlOTYyY2Y3ZjVkNDhjNjlmY2VkMGZkYTU5ODVjOGI=";
 export const SPOTIFY_AUTH_TOKEN_LOCAL_STORAGE_KEY =
