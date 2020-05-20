@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -12,11 +11,9 @@ import { useLocation } from "@reach/router";
 import "../styles/index.sass";
 import { getPageBackground } from "../utils/pages";
 import { useTimeout } from "../utils/hooks";
-import { Grid, Row } from "react-flexbox-grid";
 
 function TransitionContainer({ currBackground, children, loading }) {
   const location = useLocation();
-  const [showMenu, setShowMenu] = useState(false);
   return (
     <StaticQuery
       query={graphql`

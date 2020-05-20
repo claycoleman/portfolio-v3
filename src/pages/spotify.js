@@ -1,6 +1,5 @@
 import React, { useRef, useState, useMemo, useCallback } from "react";
-import { Link, graphql } from "gatsby";
-import BackButton from "../components/BackButton";
+import { graphql } from "gatsby";
 import Page from "../components/Page";
 import MobileOnly from "../components/MobileOnly";
 import { Grid } from "react-flexbox-grid";
@@ -12,7 +11,6 @@ import {
   SERVER_ACCESS_TOKEN_URL,
 } from "../utils/constants";
 import { useEffectOnce } from "../utils/hooks";
-import { MobileOnlyView } from "react-device-detect";
 import Axios from "axios";
 
 import { isBrowser } from "react-device-detect";
@@ -79,7 +77,7 @@ const SpotifyPage = ({ data }) => {
             ...previousPlaylists,
             [response.data.id]: response.data,
           };
-          if (getLoadedPlaylistsCount(newPlaylists) == playlistIDs.length) {
+          if (getLoadedPlaylistsCount(newPlaylists) === playlistIDs.length) {
             sessionStorage.setItem(
               SPOTIFY_DATA_SESSION_STORAGE_KEY,
               JSON.stringify({
@@ -122,7 +120,7 @@ const SpotifyPage = ({ data }) => {
         }
       }
     },
-    [playlists, setNowPlaying],
+    [playlists, setNowPlaying, playingEnabled],
   );
   const playFirstPreviewDebounced = useMemo(
     () => debounce(playFirstPreview, 200),
@@ -230,7 +228,7 @@ const SpotifyPage = ({ data }) => {
             </MobileOnly>
             {Object.keys(playlists).map((playlistID) => {
               if (!playlists[playlistID]) {
-                return;
+                return null;
               }
               return (
                 <div
@@ -267,7 +265,10 @@ const SpotifyPage = ({ data }) => {
     <div className="sheet">
       <Helmet>
         <title>Spotify - Clay Coleman</title>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
       </Helmet>
       <Page id="spotify-page" subpageTitle="Spotify">
         <Grid>{content}</Grid>

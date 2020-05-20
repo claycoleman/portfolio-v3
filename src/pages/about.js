@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import {  graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Img from "gatsby-image";
 import SocialLinks, {
@@ -8,8 +8,6 @@ import SocialLinks, {
 import DesktopOnly from "../components/DesktopOnly";
 import { Grid, Row, Col } from "react-flexbox-grid";
 import MobileOnly from "../components/MobileOnly";
-import BackButton from "../components/BackButton";
-import SubpageTitleBar from "../components/SubpageTitleBar";
 import Page from "../components/Page";
 import { useTimeout } from "../utils/hooks";
 
@@ -19,7 +17,7 @@ const About = ({ data }) => {
   useTimeout(() => {
     const links = document.querySelectorAll("#bio a");
     links.forEach((link) => {
-      if (link.hostname != window.location.hostname) {
+      if (link.hostname !== window.location.hostname) {
         link.target = "_blank";
         link.rel = "noopener noreferrer";
       }

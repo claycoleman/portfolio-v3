@@ -1,6 +1,4 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
-import back from "../assets/images/back.png";
 import BackButton from "./BackButton";
 
 export default (props) => {

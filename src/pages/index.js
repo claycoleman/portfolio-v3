@@ -1,7 +1,5 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
-import Masonry from "react-masonry-component";
-import Img from "gatsby-image";
+import { graphql } from "gatsby";
 import { MAIN_MENU_LINKS } from "../utils/pages";
 import SocialLinks from "../components/SocialLinks";
 import MobileOnly from "../components/MobileOnly";

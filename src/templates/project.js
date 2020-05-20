@@ -1,5 +1,4 @@
 import React from "react";
-import Slider from "react-slick";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import Img from "gatsby-image";
 import { graphql } from "gatsby";
