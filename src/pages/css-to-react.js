@@ -30,7 +30,7 @@ const CssToReactPage = () => {
   return (
     <div className="sheet">
       <Helmet>
-        <title>Projects - Clay Coleman</title>
+        <title>CSS to React - Clay Coleman</title>
       </Helmet>
       <Page id="css-to-react-page" subpageTitle="CSS to React" parent="/projects">
         {(isMini) => (
