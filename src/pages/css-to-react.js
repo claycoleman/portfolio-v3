@@ -32,7 +32,7 @@ const CssToReactPage = () => {
       <Helmet>
         <title>Projects - Clay Coleman</title>
       </Helmet>
-      <Page id="css-to-react-page" subpageTitle="CSS to React">
+      <Page id="css-to-react-page" subpageTitle="CSS to React" parent="/projects">
         {(isMini) => (
           <Grid
             style={{
