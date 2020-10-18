@@ -1,0 +1,16 @@
+.clipboardCopier
+  &:after
+    content: "Click to copy"
+    display: block
+    opacity: 0
+    color: white
+    transition: opacity 0.15s ease-out
+
+  &.copied
+    &:after
+      content: "Copied!"
+
+  &:hover
+    &:after
+      opacity: 1.0
+  

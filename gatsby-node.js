@@ -29,3 +29,12 @@ exports.createPages = ({ graphql, actions }) => {
     });
   });
 };
+
+exports.onCreateWebpackConfig = ({ getConfig }) => {
+  const config = getConfig();
+  config.node = {
+    fs: "empty",
+    dns: "empty",
+    net: "empty",
+  };
+};
